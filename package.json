@@ -1,0 +1,18 @@
+{
+  "name": "yarn-plugins-cy",
+  "version": "1.0.0",
+  "scripts": {
+    "builder": "builder"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": "https://github.com/indooorsman/yarn-plugins.git",
+  "author": "indooorsman@gmail.com",
+  "license": "MIT",
+  "packageManager": "yarn@3.2.0",
+  "devDependencies": {
+    "@yarnpkg/builder": "^3.2.0",
+    "typescript": "^4.6.2"
+  }
+}
