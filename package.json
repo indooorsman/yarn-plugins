@@ -1,8 +1,13 @@
 {
   "name": "yarn-plugins-cy",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=14.18"
+  },
   "scripts": {
-    "builder": "builder"
+    "builder": "builder",
+    "builder:post": "node ./scripts/rename.cjs",
+    "build:versiontools": "yarn workspace yarn-plugin-version-tools run build && yarn workspace yarn-plugin-version-tools run builder:post --cwd ./packages/yarn-plugin-version-tools"
   },
   "workspaces": [
     "packages/*"

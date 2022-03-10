@@ -11,7 +11,8 @@
     "yarn-plugins-cy-common": "workspace:^"
   },
   "scripts": {
-    "build": "builder build plugin"
+    "build": "builder build plugin",
+    "build:dev": "builder build plugin --no-minify"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",
