@@ -2,6 +2,7 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "esModuleInterop": true,
+    "jsx": "react",
     "module": "commonjs",
     "target": "ES2019",
     "lib": [

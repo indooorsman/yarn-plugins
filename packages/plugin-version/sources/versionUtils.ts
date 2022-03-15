@@ -97,10 +97,7 @@ export async function resolveVersionFiles(project: Project, {prerelease = null}:
       if (workspace.manifest.version === null)
         throw new Error(`Assertion failed: Expected the workspace to have a version (${structUtils.prettyLocator(project.configuration, workspace.anchoredLocator)})`);
 
-      // If there's a `stableVersion` field, then we assume that `version`
-      // contains a prerelease version and that we need to base the version
-      // bump relative to the latest stable instead.
-      const baseVersion = workspace.manifest.raw.stableVersion ?? workspace.manifest.version;
+      const baseVersion = workspace.manifest.version;
 
       const candidateRelease = candidateReleases.get(workspace);
       const suggestedRelease = applyStrategy(baseVersion, validateReleaseDecision(decision));
@@ -432,11 +429,6 @@ export function applyReleases(project: Project, newVersions: Map<Workspace, stri
   for (const [workspace, newVersion] of newVersions) {
     const oldVersion = workspace.manifest.version;
     workspace.manifest.version = newVersion;
-
-    if (semver.prerelease(newVersion) === null)
-      delete workspace.manifest.raw.stableVersion;
-    else if (!workspace.manifest.raw.stableVersion)
-      workspace.manifest.raw.stableVersion = oldVersion;
 
     const identString = workspace.manifest.name !== null
       ? structUtils.stringifyIdent(workspace.manifest.name)

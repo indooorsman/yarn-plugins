@@ -97,7 +97,7 @@ export default class VersionCheckCommand extends BaseCommand {
     };
 
     const Undecided = ({workspace, active, decision, setDecision}: {workspace: Workspace, active?: boolean, decision: string, setDecision: (decision: versionUtils.Decision) => void}) => {
-      const currentVersion = workspace.manifest.raw.stableVersion ?? workspace.manifest.version;
+      const currentVersion = workspace.manifest.version;
       if (currentVersion === null)
         throw new Error(`Assertion failed: The version should have been set (${structUtils.prettyLocator(configuration, workspace.anchoredLocator)})`);
 

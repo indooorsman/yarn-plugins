@@ -48,27 +48,41 @@ export class VersionPlusCommand extends VersionCommand {
           );
         }
 
-        if (
-          parsedVersion.prerelease?.length &&
-          this.preid &&
-          parsedVersion.prerelease.includes(this.preid)
-        ) {
+        const prepareWork = async () => {
+          if (workspace.manifest.raw['stableVersion']) {
+            delete workspace.manifest.raw['stableVersion'];
+            await workspace.persistManifest();
+          }
+        };
+
+        if (!this.preid) {
+          await prepareWork();
           return await super.execute();
         }
 
-        const nextVersion = semver.inc(currentVersion, 'prerelease', this.preid ?? '');
+        if (parsedVersion.prerelease?.includes?.(this.preid)) {
+          await prepareWork();
+          return await super.execute();
+        }
+
+        const nextVersion = semver.inc(
+          currentVersion,
+          'prerelease',
+          { includePrerelease: true, loose: true },
+          this.preid
+        );
         workspace.manifest.version = nextVersion;
         workspace.manifest.raw['version'] = nextVersion;
-        if (this.preid && !parsedVersion.prerelease?.includes?.(this.preid)) {
-          delete workspace.manifest.raw.stableVersion;
-        }
+        delete workspace.manifest.raw['stableVersion'];
         await workspace.persistManifest();
 
         return await super.execute();
       } else {
-        throw new Error(`Can't find package.json in current dir`);
+        // handle non-workspace error in super
+        return await super.execute();
       }
     } else {
+      // not prerelease stragegy
       return await super.execute();
     }
   }
