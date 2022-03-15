@@ -12,7 +12,7 @@ yarn plugin import https://github.com/indooorsman/yarn-plugins/releases/download
 
 ### `yarn vt <stragegy>`
 
-almost same with [@yarnpkg/plugin-version](https://yarnpkg.com/cli/version), but add a `--preid` option for bump `prerelease` version, e.g.:
+almost same with `yarn version` from [@yarnpkg/plugin-version](https://yarnpkg.com/cli/version), but add a `--preid` option for bump `prerelease` version, e.g.:
 
 ```bash
 yarn vt prerelease --preid beta
@@ -27,3 +27,11 @@ show changed packages
 yarn vt changed --base main
 #=> yarn-plugin-version-tools,yarn-plugin-version-fork
 ```
+
+### `yarn vt apply`
+
+same with `yarn version apply` from [@yarnpkg/plugin-version](https://yarnpkg.com/cli/version)
+
+### `yarn vt check`
+
+same with `yarn version check` from [@yarnpkg/plugin-version](https://yarnpkg.com/cli/version)
