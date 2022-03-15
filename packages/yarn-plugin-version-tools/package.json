@@ -9,8 +9,8 @@
     "@yarnpkg/libui": "^2.2.1",
     "@yarnpkg/plugin-git": "^2.6.0",
     "clipanion": "^3.2.0-rc.4",
-    "ink": "^3.2.0",
-    "react": "^17.0.2",
+    "ink": "^2.3.0",
+    "react": "^16.8.4",
     "semver": "^7.3.5",
     "typanion": "^3.7.1",
     "yarn-plugin-version-fork": "workspace:^"

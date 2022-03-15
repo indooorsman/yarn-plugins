@@ -1,8 +1,6 @@
 import { Configuration, Project } from '@yarnpkg/core';
 import { Command, Option } from 'clipanion';
 import { matchesRegExp } from 'typanion';
-import { readFile, writeFile } from 'fs/promises';
-import path from 'path';
 import semver from 'semver';
 import { COMMAND_NS } from './constants';
 import VersionCommand from 'yarn-plugin-version-fork/sources/commands/version';
@@ -30,7 +28,7 @@ export class VersionPlusCommand extends VersionCommand {
   async execute() {
     if (this.strategy !== 'prerelease' && this.preid) {
       this.context.stdout.write(
-        `--preid will be ignored as it only works with prerelease strategy`
+        `\n--preid will be ignored as it only works with prerelease strategy\n`
       );
     }
 
@@ -65,7 +63,6 @@ export class VersionPlusCommand extends VersionCommand {
           delete workspace.manifest.raw.stableVersion;
         }
         await workspace.persistManifest();
-        console.log('next version should be >', nextVersion);
 
         return await super.execute();
       } else {
