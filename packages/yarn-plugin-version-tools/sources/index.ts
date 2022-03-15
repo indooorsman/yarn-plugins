@@ -1,4 +1,4 @@
-import { Plugin } from '@yarnpkg/core';
+import { Plugin, SettingsType } from '@yarnpkg/core';
 import { GetChangedPackagesCommand, VersionPlusCommand } from './commands';
 import { Command, Usage } from 'clipanion';
 import VersionApplyCommand from 'yarn-plugin-version-fork/sources/commands/version/apply';
@@ -53,6 +53,19 @@ class VTCheckCommand extends VersionCheckCommand {
 }
 
 const plugin: Plugin = {
+  configuration: {
+    // @ts-ignore
+    deferredVersionFolder: {
+      description: `Folder where are stored the versioning files`,
+      type: SettingsType.ABSOLUTE_PATH,
+      default: `./.yarn/versions`
+    },
+    preferDeferredVersions: {
+      description: `If true, running \`yarn ${COMMAND_NS}\` will assume the \`--deferred\` flag unless \`--immediate\` is set`,
+      type: SettingsType.BOOLEAN,
+      default: false
+    }
+  },
   commands: [GetChangedPackagesCommand, VersionPlusCommand, VTApplyCommand, VTCheckCommand]
 };
 

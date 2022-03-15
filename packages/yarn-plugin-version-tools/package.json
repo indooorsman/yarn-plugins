@@ -1,7 +1,7 @@
 {
   "name": "yarn-plugin-version-tools",
   "main": "./sources/index.ts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "dependencies": {
     "@yarnpkg/cli": "^3.2.0",
     "@yarnpkg/core": "^3.2.0",
