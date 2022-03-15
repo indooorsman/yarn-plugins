@@ -4,10 +4,18 @@ some usefull yarn 3.x custom plugins
 
 ## yarn-plugin-version-tools
 
+**this plugin is conflict with [@yarnpkg/plugin-version](https://yarnpkg.com/cli/version), as it's designed to be drop-in replacement of `@yarnpkg/plugin-version` and they have same configuration keys which will cause errors if both of them are installed**
+
+before install this plugin please remove `@yarnpkg/plugin-version` first:
+
+```bash
+yarn plugin remove `@yarnpkg/plugin-version`
+```
+
 install:
 
 ```bash
-yarn plugin import https://github.com/indooorsman/yarn-plugins/releases/download/v1.0.3/plugin-version-tools.js
+yarn plugin import https://github.com/indooorsman/yarn-plugins/releases/download/v1.0.4/plugin-version-tools.js
 ```
 
 ### `yarn vt <stragegy>`
