@@ -28,7 +28,7 @@ export class VersionPlusCommand extends VersionCommand {
   async execute() {
     if (this.strategy !== 'prerelease' && this.preid) {
       this.context.stdout.write(
-        `\n--preid will be ignored as it only works with prerelease strategy\n`
+        `--preid will be ignored as it only works with prerelease strategy\n`
       );
     }
 
