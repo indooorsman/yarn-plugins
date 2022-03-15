@@ -18,6 +18,12 @@ install:
 yarn plugin import https://github.com/indooorsman/yarn-plugins/releases/download/v1.0.4/plugin-version-tools.js
 ```
 
+uninstall:
+
+```bash
+yarn plugin remove yarn-plugin-version-tools
+```
+
 ### `yarn vt <stragegy>`
 
 almost same with `yarn version` from [@yarnpkg/plugin-version](https://yarnpkg.com/cli/version), but add a `--preid` option for bump `prerelease` version, e.g.:
