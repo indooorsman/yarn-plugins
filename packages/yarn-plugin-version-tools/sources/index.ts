@@ -1,8 +1,8 @@
 import { Plugin } from '@yarnpkg/core';
-import { GetChangedPackagesCommand, PrereleaseVersion } from './commands';
+import { GetChangedPackagesCommand, VersionPlusCommand } from './commands';
 
 const plugin: Plugin = {
-  commands: [GetChangedPackagesCommand, PrereleaseVersion]
+  commands: [GetChangedPackagesCommand, VersionPlusCommand]
 };
 
 export default plugin;

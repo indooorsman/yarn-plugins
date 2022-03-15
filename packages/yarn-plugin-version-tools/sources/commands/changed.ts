@@ -2,7 +2,7 @@ import { BaseCommand } from '@yarnpkg/cli';
 import { Configuration, Project } from '@yarnpkg/core';
 import { Command, Option } from 'clipanion';
 import { gitUtils } from '@yarnpkg/plugin-git';
-import { COMMAND_NS } from 'yarn-plugins-cy-common';
+import { COMMAND_NS } from './constants';
 
 export class GetChangedPackagesCommand extends BaseCommand {
   static paths = [[COMMAND_NS, 'changed']];

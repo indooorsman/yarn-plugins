@@ -1,14 +1,19 @@
 {
   "name": "yarn-plugin-version-tools",
   "main": "./sources/index.ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "@yarnpkg/cli": "^3.2.0",
     "@yarnpkg/core": "^3.2.0",
+    "@yarnpkg/fslib": "^2.6.1",
+    "@yarnpkg/libui": "^2.2.1",
     "@yarnpkg/plugin-git": "^2.6.0",
     "clipanion": "^3.2.0-rc.4",
+    "ink": "^3.2.0",
+    "react": "^17.0.2",
     "semver": "^7.3.5",
-    "yarn-plugins-cy-common": "workspace:^"
+    "typanion": "^3.7.1",
+    "yarn-plugin-version-fork": "workspace:^"
   },
   "scripts": {
     "build": "builder build plugin",

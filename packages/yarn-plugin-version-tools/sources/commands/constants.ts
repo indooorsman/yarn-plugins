@@ -1,0 +1,1 @@
+export const COMMAND_NS = 'vt'; // shortcut for version-tools

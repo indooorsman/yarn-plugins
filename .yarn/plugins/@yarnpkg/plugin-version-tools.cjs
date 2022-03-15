@@ -1,0 +1,1 @@
+../../../packages/yarn-plugin-version-tools/bundles/@yarnpkg/plugin-version-tools.js
