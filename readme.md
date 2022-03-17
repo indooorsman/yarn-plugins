@@ -15,7 +15,7 @@ yarn plugin remove `@yarnpkg/plugin-version`
 install:
 
 ```bash
-yarn plugin import https://github.com/indooorsman/yarn-plugins/releases/download/v1.0.4/plugin-version-tools.js
+yarn plugin import https://github.com/indooorsman/yarn-plugins/releases/download/v1.0.5/plugin-version-tools.js
 ```
 
 uninstall:
