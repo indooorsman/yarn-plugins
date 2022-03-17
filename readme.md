@@ -9,7 +9,7 @@ some usefull yarn 3.x custom plugins
 before install this plugin please remove `@yarnpkg/plugin-version` first:
 
 ```bash
-yarn plugin remove `@yarnpkg/plugin-version`
+yarn plugin remove @yarnpkg/plugin-version
 ```
 
 install:
