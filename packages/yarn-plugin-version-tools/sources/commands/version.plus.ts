@@ -2,11 +2,14 @@ import { Configuration, Project } from '@yarnpkg/core';
 import { Command, Option } from 'clipanion';
 import { matchesRegExp } from 'typanion';
 import semver from 'semver';
-import { COMMAND_NS } from './constants';
+import { COMMAND_NS, COMMAND_NS_SHORT } from './constants';
 import VersionCommand from 'yarn-plugin-version-fork/sources/commands/version';
 
 export class VersionPlusCommand extends VersionCommand {
-  static paths = [[COMMAND_NS]];
+  static paths = [
+    [COMMAND_NS],
+    [COMMAND_NS_SHORT]
+  ];
 
   static usage = Command.Usage({
     description: 'Bump package version',

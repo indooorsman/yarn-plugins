@@ -2,10 +2,13 @@ import { BaseCommand } from '@yarnpkg/cli';
 import { Configuration, Project } from '@yarnpkg/core';
 import { Command, Option } from 'clipanion';
 import { gitUtils } from '@yarnpkg/plugin-git';
-import { COMMAND_NS } from './constants';
+import { COMMAND_NS, COMMAND_NS_SHORT } from './constants';
 
 export class GetChangedPackagesCommand extends BaseCommand {
-  static paths = [[COMMAND_NS, 'changed']];
+  static paths = [
+    [COMMAND_NS, 'changed'],
+    [COMMAND_NS_SHORT, 'changed']
+  ];
 
   static usage = Command.Usage({
     description: 'get changed packages',

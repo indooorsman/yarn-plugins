@@ -3,10 +3,13 @@ import { GetChangedPackagesCommand, VersionPlusCommand } from './commands';
 import { Command, Usage } from 'clipanion';
 import VersionApplyCommand from 'yarn-plugin-version-fork/sources/commands/version/apply';
 import VersionCheckCommand from 'yarn-plugin-version-fork/sources/commands/version/check';
-import { COMMAND_NS } from './commands/constants';
+import { COMMAND_NS, COMMAND_NS_SHORT } from './commands/constants';
 
 class VTApplyCommand extends VersionApplyCommand {
-  static paths = [[COMMAND_NS, `apply`]];
+  static paths = [
+    [COMMAND_NS, `apply`],
+    [COMMAND_NS_SHORT, 'apply']
+  ];
 
   static usage: Usage = Command.Usage({
     category: `Release-related commands`,
@@ -34,7 +37,10 @@ class VTApplyCommand extends VersionApplyCommand {
 }
 
 class VTCheckCommand extends VersionCheckCommand {
-  static paths = [[COMMAND_NS, `check`]];
+  static paths = [
+    [COMMAND_NS, `check`],
+    [COMMAND_NS_SHORT, 'check']
+  ];
 
   static usage: Usage = Command.Usage({
     category: `Release-related commands`,
