@@ -5,7 +5,7 @@ Show manifest of workspace
 ## Install
 
 ```bash
-$ yarn plugin import 
+$ yarn plugin import https://github.com/indooorsman/yarn-plugins/releases/download/yarn-plugin-manifest%401.0.0/plugin-manifest.js
 ```
 
 ## Usage
