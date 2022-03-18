@@ -945,7 +945,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clipanion@npm:^3.2.0-rc.4":
+"clipanion@npm:^3.2.0-rc.10, clipanion@npm:^3.2.0-rc.4":
   version: 3.2.0-rc.10
   resolution: "clipanion@npm:3.2.0-rc.10"
   dependencies:
@@ -2434,6 +2434,19 @@ __metadata:
   checksum: 343617202af32df2a15a3be36a5a8c0c8545208f3d3dfbc6bb7c3e3b7e8c6f8e7485432e4f3b88da3031a6e20afa7c711eded32ddfb122896ac5d914e75848d5
   languageName: node
   linkType: hard
+
+"yarn-plugin-manifest@workspace:packages/yarn-plugin-manifest":
+  version: 0.0.0-use.local
+  resolution: "yarn-plugin-manifest@workspace:packages/yarn-plugin-manifest"
+  dependencies:
+    "@types/node": ^16.0.0
+    "@yarnpkg/builder": ^3.2.0
+    "@yarnpkg/cli": ^3.2.0
+    "@yarnpkg/core": ^3.2.0
+    clipanion: ^3.2.0-rc.10
+    typescript: ^4.6.2
+  languageName: unknown
+  linkType: soft
 
 "yarn-plugin-version-fork@workspace:^, yarn-plugin-version-fork@workspace:packages/plugin-version":
   version: 0.0.0-use.local

@@ -25,6 +25,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/plugin-version"\
       },\
       {\
+        "name": "yarn-plugin-manifest",\
+        "reference": "workspace:packages/yarn-plugin-manifest"\
+      },\
+      {\
         "name": "yarn-plugin-version-tools",\
         "reference": "workspace:packages/yarn-plugin-version-tools"\
       }\
@@ -32,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
+      ["yarn-plugin-manifest", ["workspace:packages/yarn-plugin-manifest"]],\
       ["yarn-plugin-version-fork", ["virtual:492dab20ca1eeb39d97f7b9442b4633f8daff67368b99ed963dda2800880b7ce246e5173f79754f8aacceff6f5e57c70058b5f6231c493113640659f481d069a#workspace:packages/plugin-version", "workspace:packages/plugin-version"]],\
       ["yarn-plugin-version-tools", ["workspace:packages/yarn-plugin-version-tools"]],\
       ["yarn-plugins-cy", ["workspace:."]]\
@@ -3145,6 +3150,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yallist", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["yarn-plugin-manifest", [\
+        ["workspace:packages/yarn-plugin-manifest", {\
+          "packageLocation": "./packages/yarn-plugin-manifest/",\
+          "packageDependencies": [\
+            ["yarn-plugin-manifest", "workspace:packages/yarn-plugin-manifest"],\
+            ["@types/node", "npm:16.11.26"],\
+            ["@yarnpkg/builder", "npm:3.2.0"],\
+            ["@yarnpkg/cli", "virtual:eba9d4adf8581509681da63d65826b21b3b9a89a5de6d11c1cd9bad75758091420de0a284b3923b6d935b514f90f2491dca4f77a7cd326d80be2360e25fa1bb0#npm:3.2.0"],\
+            ["@yarnpkg/core", "npm:3.2.0"],\
+            ["clipanion", "virtual:aa6dbc485c96a4f23035a31f44481412ab7479eee841cf5f30d392dce33e0547ef7dbed86b365514f32c7fc4d2d00670c7483fbe76a30ee4eead454cfc70e090#npm:3.2.0-rc.10"],\
+            ["typescript", "patch:typescript@npm%3A4.6.2#~builtin<compat/typescript>::version=4.6.2&hash=bda367"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["yarn-plugin-version-fork", [\

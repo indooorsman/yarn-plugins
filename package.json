@@ -7,8 +7,9 @@
   },
   "scripts": {
     "builder": "builder",
-    "builder:post": "node ./scripts/rename.cjs",
-    "build:versiontools": "yarn workspace yarn-plugin-version-tools run build && yarn workspace yarn-plugin-version-tools run builder:post --cwd ./packages/yarn-plugin-version-tools"
+    "builder:post": "yarn node ./scripts/rename.cjs",
+    "build:versiontools": "yarn workspace yarn-plugin-version-tools run build && yarn workspace yarn-plugin-version-tools run -T builder:post --cwd ./packages/yarn-plugin-version-tools",
+    "build:manifest": "yarn workspace yarn-plugin-manifest run build && yarn workspace yarn-plugin-manifest run -T builder:post --cwd ./packages/yarn-plugin-manifest"
   },
   "workspaces": [
     "packages/*"

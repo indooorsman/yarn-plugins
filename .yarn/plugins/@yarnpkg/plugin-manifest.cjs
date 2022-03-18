@@ -1,0 +1,1 @@
+../../../packages/yarn-plugin-manifest/bundles/@yarnpkg/plugin-manifest.js
