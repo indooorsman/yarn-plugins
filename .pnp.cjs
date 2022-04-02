@@ -1893,7 +1893,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["string-length", "npm:3.1.0"],\
             ["widest-line", "npm:3.1.0"],\
             ["wrap-ansi", "npm:6.2.0"],\
-            ["yoga-layout-prebuilt", "npm:1.10.0"]\
+            ["yoga-layout-prebuilt", "patch:yoga-layout-prebuilt@npm%3A1.10.0#./.yarn/patches/yoga-layout-prebuilt.patch::version=1.10.0&hash=8c2d4c&locator=yarn-plugins-cy%40workspace%3A."]\
           ],\
           "packagePeers": [\
             "@types/react",\
@@ -1924,7 +1924,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["string-length", "npm:3.1.0"],\
             ["widest-line", "npm:3.1.0"],\
             ["wrap-ansi", "npm:6.2.0"],\
-            ["yoga-layout-prebuilt", "npm:1.10.0"]\
+            ["yoga-layout-prebuilt", "patch:yoga-layout-prebuilt@npm%3A1.10.0#./.yarn/patches/yoga-layout-prebuilt.patch::version=1.10.0&hash=8c2d4c&locator=yarn-plugins-cy%40workspace%3A."]\
           ],\
           "packagePeers": [\
             "@types/react",\
@@ -3262,10 +3262,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["yoga-layout-prebuilt", [\
-        ["npm:1.10.0", {\
-          "packageLocation": "./.yarn/cache/yoga-layout-prebuilt-npm-1.10.0-855b15449f-6954c7c7b0.zip/node_modules/yoga-layout-prebuilt/",\
+        ["patch:yoga-layout-prebuilt@npm%3A1.10.0#./.yarn/patches/yoga-layout-prebuilt.patch::version=1.10.0&hash=8c2d4c&locator=yarn-plugins-cy%40workspace%3A.", {\
+          "packageLocation": "./.yarn/cache/yoga-layout-prebuilt-patch-43075f10c5-e659d239b6.zip/node_modules/yoga-layout-prebuilt/",\
           "packageDependencies": [\
-            ["yoga-layout-prebuilt", "npm:1.10.0"],\
+            ["yoga-layout-prebuilt", "patch:yoga-layout-prebuilt@npm%3A1.10.0#./.yarn/patches/yoga-layout-prebuilt.patch::version=1.10.0&hash=8c2d4c&locator=yarn-plugins-cy%40workspace%3A."],\
             ["@types/yoga-layout", "npm:1.9.2"]\
           ],\
           "linkType": "HARD"\

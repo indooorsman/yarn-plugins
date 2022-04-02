@@ -2506,12 +2506,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"yoga-layout-prebuilt@npm:^1.9.3":
+"yoga-layout-prebuilt@npm:1.10.0":
   version: 1.10.0
   resolution: "yoga-layout-prebuilt@npm:1.10.0"
   dependencies:
     "@types/yoga-layout": 1.9.2
   checksum: 6954c7c7b04c585a1c974391bea4734611adb85702b5e9131549a1d3dc5b94e69bcfea34121cdaeb5e702663bf290fcce5374910128e54d1031503a57c062865
+  languageName: node
+  linkType: hard
+
+"yoga-layout-prebuilt@patch:yoga-layout-prebuilt@1.10.0#./.yarn/patches/yoga-layout-prebuilt.patch::locator=yarn-plugins-cy%40workspace%3A.":
+  version: 1.10.0
+  resolution: "yoga-layout-prebuilt@patch:yoga-layout-prebuilt@npm%3A1.10.0#./.yarn/patches/yoga-layout-prebuilt.patch::version=1.10.0&hash=8c2d4c&locator=yarn-plugins-cy%40workspace%3A."
+  dependencies:
+    "@types/yoga-layout": 1.9.2
+  checksum: e659d239b6f0a38a70d24e33802f906bf7e78654de91dde99bf59cc2e12a26f7102c57032428312c6c1646a956335157df3bdf06a70a9f5e6974e7dfb6460539
   languageName: node
   linkType: hard
 
