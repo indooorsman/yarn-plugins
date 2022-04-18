@@ -22,11 +22,20 @@ yarn plugin remove yarn-plugin-version-tools
 
 ### `yarn vt <stragegy>`
 
-almost same with `yarn version` from [@yarnpkg/plugin-version](https://yarnpkg.com/cli/version), but add a `--preid` option for bump `prerelease` version, e.g.:
+almost same with `yarn version` from [@yarnpkg/plugin-version](https://yarnpkg.com/cli/version), but:
+
+- add a `--preid` option for bump `prerelease` version, e.g.:
 
 ```bash
 yarn vt prerelease --preid beta
 #=> 1.2.2 ==> 1.2.3-beta.1
+```
+
+- add a `--from` option, e.g.:
+
+```bash
+yarn vt patch --from=1.2.0
+#=> 1.2.1
 ```
 
 ### `yarn vt changed --base <branch name or commit hash>`
