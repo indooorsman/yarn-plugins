@@ -6,10 +6,7 @@ import { COMMAND_NS, COMMAND_NS_SHORT } from './constants';
 import VersionCommand from 'yarn-plugin-version-fork/sources/commands/version';
 
 export class VersionPlusCommand extends VersionCommand {
-  static paths = [
-    [COMMAND_NS],
-    [COMMAND_NS_SHORT]
-  ];
+  static paths = [[COMMAND_NS], [COMMAND_NS_SHORT]];
 
   static usage = Command.Usage({
     description: 'Bump package version',
@@ -17,7 +14,8 @@ export class VersionPlusCommand extends VersionCommand {
       [`yarn ${COMMAND_NS} patch`, '1.2.2 ==> 1.2.3'],
       [`yarn ${COMMAND_NS} major`, '1.2.2 ==> 2.0.0'],
       [`yarn ${COMMAND_NS} minor --deferred`, ''],
-      [`yarn ${COMMAND_NS} prerelease --preid=hotfix`, '1.2.2 ==> 1.2.3-hotfix.0']
+      [`yarn ${COMMAND_NS} prerelease --preid=hotfix`, '1.2.2 ==> 1.2.3-hotfix.0'],
+      [`yarn ${COMMAND_NS} patch --from=1.3.0`, '1.2.2 ==> 1.3.1']
     ]
   });
 
@@ -28,6 +26,11 @@ export class VersionPlusCommand extends VersionCommand {
     validator: matchesRegExp(/^[a-zA-Z0-9]+$/)
   });
 
+  from = Option.String('--from', {
+    required: false,
+    description: 'patch from a specific version'
+  });
+
   async execute() {
     if (this.strategy !== 'prerelease' && this.preid) {
       this.context.stdout.write(
@@ -35,12 +38,19 @@ export class VersionPlusCommand extends VersionCommand {
       );
     }
 
-    if (this.strategy === 'prerelease') {
-      const configuration = await Configuration.find(this.context.cwd, this.context.plugins);
-      const { workspace } = await Project.find(configuration, this.context.cwd);
+    const configuration = await Configuration.find(this.context.cwd, this.context.plugins);
+    const { workspace } = await Project.find(configuration, this.context.cwd);
 
+    const currentVersion = this.from || workspace?.manifest?.version || '0.0.0';
+
+    const prepareWork = async (): Promise<void> => {
+      delete workspace.manifest.raw['stableVersion'];
+      workspace.manifest.version = workspace.manifest.raw['version'] = currentVersion;
+      await workspace.persistManifest();
+    };
+
+    if (this.strategy === 'prerelease') {
       if (workspace && workspace.manifest && workspace.manifest.version) {
-        const currentVersion = workspace.manifest.version;
         const parsedVersion = semver.parse(currentVersion, {
           loose: true,
           includePrerelease: true
@@ -50,13 +60,6 @@ export class VersionPlusCommand extends VersionCommand {
             `current version ${currentVersion} is not a valid semantic version(https://semver.org/), please correct it then try again`
           );
         }
-
-        const prepareWork = async () => {
-          if (workspace.manifest.raw['stableVersion']) {
-            delete workspace.manifest.raw['stableVersion'];
-            await workspace.persistManifest();
-          }
-        };
 
         if (!this.preid) {
           await prepareWork();
@@ -86,6 +89,7 @@ export class VersionPlusCommand extends VersionCommand {
       }
     } else {
       // not prerelease stragegy
+      await prepareWork();
       return await super.execute();
     }
   }
